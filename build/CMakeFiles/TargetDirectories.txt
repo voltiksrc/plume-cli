@@ -1,0 +1,3 @@
+/home/voltik/Projects/plume/build/CMakeFiles/plume.dir
+/home/voltik/Projects/plume/build/CMakeFiles/edit_cache.dir
+/home/voltik/Projects/plume/build/CMakeFiles/rebuild_cache.dir

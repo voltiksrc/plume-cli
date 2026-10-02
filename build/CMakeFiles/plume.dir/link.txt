@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/plume.dir/link.d CMakeFiles/plume.dir/src/main.cpp.o CMakeFiles/plume.dir/src/api.cpp.o -o plume  /usr/lib64/libcurl.so /usr/lib64/libcurl.so
