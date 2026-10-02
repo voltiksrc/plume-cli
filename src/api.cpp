@@ -1,10 +1,13 @@
 #include "api.hpp"
 #include <curl/curl.h>
 #include <iostream>
+#include <nlohmann/detail/conversions/to_json.hpp>
 #include <nlohmann/json.hpp>
 #include <string>
+#include <vector>
 
 using std::string;
+using std::vector;
 using json = nlohmann::json;
 
 size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) {
@@ -17,24 +20,22 @@ size_t write_callback(char *ptr, size_t size, size_t nmemb, void *userdata) {
     return total;
 }
 
-void parse_results(const std::string &response) {
+std::vector<Anime> parse_results(const std::string &response) {
     json data = json::parse(response);
-
-    int number = 1;
+    vector<Anime> results;
 
     for (const auto &anime : data["data"]) {
-        std::string title = anime["attributes"]["canonicalTitle"];
-
-        std::string english = title;
+        string title = anime["attributes"]["canonicalTitle"];
+        string id = anime["id"];
 
         if (anime["attributes"]["titles"].contains("en")) {
             title = anime["attributes"]["titles"]["en"];
         }
 
-        std::cout << number << ". " << title << '\n';
-
-        ++number;
+        Anime result{title, id};
+        results.push_back(result);
     }
+    return results;
 }
 
 string request_page(const std::string &query) {

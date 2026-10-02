@@ -10,6 +10,7 @@ find_package(nlohmann_json REQUIRED)
 add_executable(plume
     src/main.cpp
     src/api.cpp
+    src/provider.cpp
 )
 
 target_link_libraries(plume
