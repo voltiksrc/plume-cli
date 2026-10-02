@@ -17,13 +17,13 @@ plume "Komi Can't Communicate"
 
 ## Dependencies
 
-C++20 compiler
+- C++20 compiler
 
-cmake
+- CMake
 
-libcurl
+- libcurl
 
-nlohmann/json
+- nlohmann/json
 
 ```bash
 cmake -S . -B build
